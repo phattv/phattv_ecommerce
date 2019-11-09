@@ -3,12 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "studio": "open -a /Applications/Android\\ Studio.app android",
     "android": "react-native run-android",
+    "xcode": "open ios/phattv_ecommerce.xcworkspace",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint .",
-    "xcode": "open ios/phattv_ecommerce.xcworkspace"
+    "lint": "eslint ."
   },
   "dependencies": {
     "react": "16.9.0",

@@ -3,9 +3,10 @@
   "private": true,
   "scripts": {
     "start": "yarn workspace mobile start",
-    "ios": "yarn workspace mobile ios",
+    "studio": "yarn workspace mobile studio",
     "android": "yarn workspace mobile android",
-    "xcode": "yarn workspace mobile xcode"
+    "xcode": "yarn workspace mobile xcode",
+    "ios": "yarn workspace mobile ios"
   },
   "workspaces": {
     "packages": [
