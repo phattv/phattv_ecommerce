@@ -1,6 +1,12 @@
 {
   "name": "phattv_ecommerce",
   "private": true,
+  "scripts": {
+    "start": "yarn workspace mobile start",
+    "ios": "yarn workspace mobile ios",
+    "android": "yarn workspace mobile android",
+    "xcode": "yarn workspace mobile xcode"
+  },
   "workspaces": {
     "packages": [
       "packages/*"
