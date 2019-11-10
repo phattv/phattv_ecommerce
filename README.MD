@@ -11,7 +11,8 @@ TODO
 - [Requirements](#Requirements)
 - [Installation](#Installation)
 - [How to build](#How-to-build)
-- [How to run](#How-to-run)
+- [How to run/develop](#How-to-run/develop)
+- [How to deploy](#How-to-deploy)
 
 # About
 
@@ -62,24 +63,29 @@ Get latest version of
 
 ## Web
 
-TODO
+- `yarn build:web`
 
 ## Android
 
-- `yarn start`
-- `yarn android`
+- `yarn start:mobile`
+- `yarn build:android`
 
 ## iOS
 
-- `yarn start`
-- `yarn iOS`
+- `yarn start:mobile`
+- `yarn build:iOS`
 
-# How to run
+# How to run/develop
 
 ## Web
 
-TODO
+- `yarn start:web`
 
 ## iOS & Android
 
+- `yarn start:mobile`
 - If you have installed the app to a device or followed `How to build` steps, you should be able to open the application in your physical devices or emulators/simulators
+
+# How to deploy
+
+TODO

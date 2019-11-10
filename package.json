@@ -2,11 +2,13 @@
   "name": "phattv_ecommerce",
   "private": true,
   "scripts": {
-    "start": "yarn workspace mobile start",
+    "start:web": "yarn workspace web start",
+    "build:web": "yarn workspace web build",
+    "start:mobile": "yarn workspace mobile start",
     "studio": "yarn workspace mobile studio",
-    "android": "yarn workspace mobile android",
+    "build:android": "yarn workspace mobile android",
     "xcode": "yarn workspace mobile xcode",
-    "ios": "yarn workspace mobile ios",
+    "build:ios": "yarn workspace mobile ios",
     "prettier": "prettier --write packages/**/*.{js,css}"
   },
   "workspaces": {
