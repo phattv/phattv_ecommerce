@@ -5,10 +5,12 @@
     "start:web": "yarn workspace web start",
     "build:web": "yarn workspace web build",
     "start:mobile": "yarn workspace mobile start",
-    "studio": "yarn workspace mobile studio",
     "build:android": "yarn workspace mobile android",
-    "xcode": "yarn workspace mobile xcode",
+    "studio": "yarn workspace mobile studio",
+    "emulator": "emulator -avd $(emulator -list-avds | head -n 1)",
     "build:ios": "yarn workspace mobile ios",
+    "xcode": "yarn workspace mobile xcode",
+    "simulator": "open -a Simulator.app",
     "prettier": "prettier --write packages/**/*.{js,css}"
   },
   "workspaces": {

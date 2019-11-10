@@ -1,4 +1,6 @@
-Screenshots: TODO
+# Screenshots
+
+TODO
 
 # Features
 
@@ -89,3 +91,9 @@ Get latest version of
 # How to deploy
 
 TODO
+
+## Web
+
+## Android
+
+## iOS
