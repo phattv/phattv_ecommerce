@@ -1,4 +1,19 @@
-# ABOUT
+Screenshots: TODO
+
+# Features
+
+TODO
+
+# Contents
+
+- [About](#About)
+- [Note](#Note)
+- [Requirements](#Requirements)
+- [Installation](#Installation)
+- [How to build](#How-to-build)
+- [How to run](#How-to-run)
+
+# About
 
 An Integrated Approach To Develop Web And Mobile (iOS & Android) Applications Using React and React Native
 
@@ -16,9 +31,9 @@ To develop, build and deploy 3 applications of “phattv’s ecommerce”, web t
 6. To build and deploy the 3 standalone production applications, web to the World Wide Web, android to Play Store and iOS to App Store.
 7. To evaluate and test the 3 standalone production applications.
 
-# IMPORTANT NOTE!!!
+# Note
 
-`This application is developed under a mac operating system. There might be differences between different OSes (e.g. command line commands). One of reasons is in order to build to iOS platform, the developer needs Xcode, and Xcode is only available in mac OS`
+> This application is developed under a mac operating system (OS). There might be differences between different OSes (e.g. command line commands). One of the reasons is in order to build to iOS platform, the developer needs Xcode, and Xcode is only available in mac OS
 
 # Requirements
 
@@ -29,12 +44,14 @@ Get latest version of
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [Xcode](https://developer.apple.com/xcode/)
 - [Android Studio](https://developer.android.com/studio/install)
+- [Google Chrome](https://www.google.com/chrome/)
 
 ## Command line packages
 
 - [node](https://nodejs.org/en/)
 - [yarn](https://yarnpkg.com/lang/en/docs/install)
 - [react-native](https://facebook.github.io/react-native/docs/getting-started.html)
+- [create-react-app](https://github.com/facebook/create-react-app)
 
 # Installation
 
@@ -65,4 +82,4 @@ TODO
 
 ## iOS & Android
 
-- If you have installed the app to a device or followed `How to build` steps, you should be able to open the physical device or emulator/simulator and open the application
+- If you have installed the app to a device or followed `How to build` steps, you should be able to open the application in your physical devices or emulators/simulators
