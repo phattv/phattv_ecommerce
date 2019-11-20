@@ -58,6 +58,8 @@ Get latest version of
 
 # Installation
 
+- `git clone git@github.com:phattv/phattv_ecommerce.git`
+- `cd phattv_ecommerce` (default directory)
 - `yarn`
 - `cd packages/mobile/ios && pod install`
 
@@ -87,6 +89,10 @@ Get latest version of
 
 - `yarn start:mobile`
 - If you have installed the app to a device or followed `How to build` steps, you should be able to open the application in your physical devices or emulators/simulators
+
+## Install new dependencies
+
+`yarn workspace components add {package_name}`
 
 # How to deploy
 
