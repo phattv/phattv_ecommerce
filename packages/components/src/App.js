@@ -8,10 +8,21 @@ import DetailsScreen from './screens/DetailsScreen';
 import { routes } from './constants';
 
 // Declare all the routes
-const AppNavigator = createStackNavigator({
-  [routes.Home]: HomeScreen,
-  [routes.Details]: DetailsScreen,
-});
+const AppNavigator = createStackNavigator(
+  {
+    [routes.Home]: HomeScreen,
+    [routes.Details]: DetailsScreen,
+  },
+  {
+    initialRouteName: routes.Home,
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: 'black',
+      },
+      headerTintColor: 'white',
+    },
+  },
+);
 
 const AppContainer = createAppContainer(AppNavigator);
 

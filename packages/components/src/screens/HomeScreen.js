@@ -13,8 +13,12 @@ import { AppHeader } from './AppHeader';
 import { routes } from '../constants';
 
 class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: routes.Home,
+  };
+
   navigateToDetailsScreen = () => {
-    this.props.navigation.navigate(routes.Details);
+    this.props.navigation.navigate(routes.Details, { listingID: 123 });
   };
 
   render() {
