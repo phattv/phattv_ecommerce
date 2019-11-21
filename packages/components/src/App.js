@@ -5,10 +5,11 @@ import 'react-native-gesture-handler';
 
 import HomeScreen from './screens/HomeScreen';
 import DetailsScreen from './screens/DetailsScreen';
-import { routes } from './constants';
+import ModalScreen from './screens/ModalScreen';
+import { routes, uriPrefix } from './constants';
 
 // Declare all the routes
-const AppNavigator = createStackNavigator(
+const MainStack = createStackNavigator(
   {
     [routes.Home]: HomeScreen,
     [routes.Details]: DetailsScreen,
@@ -24,11 +25,35 @@ const AppNavigator = createStackNavigator(
   },
 );
 
-const AppContainer = createAppContainer(AppNavigator);
+const RooStack = createStackNavigator(
+  {
+    Main: {
+      screen: MainStack,
+    },
+    [routes.Modal]: {
+      screen: ModalScreen,
+    },
+  },
+  {
+    mode: 'modal',
+    headerMode: 'none',
+  },
+);
+
+// https://reactnavigation.org/docs/assets/modal/tree.png
+const AppContainer = createAppContainer(RooStack);
 
 class App extends React.Component {
   render() {
-    return <AppContainer />;
+    return (
+      <AppContainer
+        uriPrefix={uriPrefix}
+        // https://reactnavigation.org/docs/en/app-containers.html#calling-dispatch-or-navigate-on-a-container-ref
+        ref={nav => {
+          this.navigator = nav;
+        }}
+      />
+    );
   }
 }
 

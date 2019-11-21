@@ -13,8 +13,18 @@ import { AppHeader } from './AppHeader';
 import { routes } from '../constants';
 
 class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: routes.Home,
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: routes.Home,
+      headerRight: (
+        <Button
+          onPress={() => {
+            navigation.navigate(routes.Modal);
+          }}
+          title="Modal"
+        />
+      ),
+    };
   };
 
   navigateToDetailsScreen = () => {
