@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import 'react-native-gesture-handler';
@@ -46,13 +47,16 @@ const AppContainer = createAppContainer(RooStack);
 class App extends React.Component {
   render() {
     return (
-      <AppContainer
-        uriPrefix={uriPrefix}
-        // https://reactnavigation.org/docs/en/app-containers.html#calling-dispatch-or-navigate-on-a-container-ref
-        ref={nav => {
-          this.navigator = nav;
-        }}
-      />
+      // without the style you may see a blank screen
+      <View style={{ flex: 1 }}>
+        <AppContainer
+          uriPrefix={uriPrefix}
+          // https://reactnavigation.org/docs/en/app-containers.html#calling-dispatch-or-navigate-on-a-container-ref
+          ref={nav => {
+            this.navigator = nav;
+          }}
+        />
+      </View>
     );
   }
 }
