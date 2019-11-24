@@ -34,16 +34,18 @@ class ListingCards extends React.Component {
             size={Dimensions.get('window').width / 2}
             borderRadius={styleConstants.spacing}
           />
-          <OneLineText style={styles.title} text={item.title} />
-          <Text>{item.price}</Text>
-          <View style={styles.sellerInfo}>
-            <SquareImage
-              uri={item.seller.image_url}
-              size={40}
-              borderRadius={20}
-              style={{ marginRight: styleConstants.spacing }}
-            />
-            <OneLineText text={item.seller.username} />
+          <View style={styles.textContainer}>
+            <OneLineText style={styles.title} text={item.title} />
+            <Text>{item.price}</Text>
+            <View style={styles.sellerInfo}>
+              <SquareImage
+                uri={item.seller.image_url}
+                size={40}
+                borderRadius={20}
+                style={{ marginRight: styleConstants.spacing }}
+              />
+              <OneLineText text={item.seller.username} />
+            </View>
           </View>
         </TouchableOpacity>
       </View>
@@ -70,6 +72,9 @@ const styles = StyleSheet.create({
   },
   item: {
     flex: 1,
+  },
+  textContainer: {
+    padding: styleConstants.spacing,
   },
   title: {
     fontWeight: 'bold',

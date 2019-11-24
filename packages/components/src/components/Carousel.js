@@ -1,6 +1,11 @@
 import React from 'react';
 import { withNavigation } from 'react-navigation';
-import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Image,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import Swiper from 'react-native-web-swiper';
 
 import { routes } from '../constants';
@@ -16,7 +21,7 @@ class Carousel extends React.Component {
       <View style={styles.container}>
         <Swiper loop timeout={3}>
           {photos.map((photo, index) => (
-            <TouchableOpacity
+            <TouchableWithoutFeedback
               onPress={() => this.showFullSreenImage(photo)}
               key={index}
             >
@@ -32,7 +37,7 @@ class Carousel extends React.Component {
                   }}
                 />
               </View>
-            </TouchableOpacity>
+            </TouchableWithoutFeedback>
           ))}
         </Swiper>
       </View>

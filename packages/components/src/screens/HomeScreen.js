@@ -9,14 +9,6 @@ class HomeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       title: routes.Home,
-      headerRight: (
-        <Button
-          onPress={() => {
-            navigation.navigate(routes.Modal);
-          }}
-          title="Modal"
-        />
-      ),
     };
   };
 
