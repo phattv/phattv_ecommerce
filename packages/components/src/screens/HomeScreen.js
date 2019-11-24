@@ -32,9 +32,7 @@ class HomeScreen extends React.Component {
     return (
       <ScrollView style={{ flex: 1 }}>
         <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
-          <ListingCards listings={listings} />
-        </SafeAreaView>
+        <ListingCards listings={listings} />
       </ScrollView>
     );
   }
