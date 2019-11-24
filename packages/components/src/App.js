@@ -17,6 +17,7 @@ const MainStack = createStackNavigator(
   },
   {
     initialRouteName: routes.Home,
+    ...{ cardStyle: { flex: 1 } },
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: 'black',
