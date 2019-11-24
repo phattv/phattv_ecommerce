@@ -48,7 +48,7 @@ class App extends React.Component {
   render() {
     return (
       // without the style you may see a blank screen
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, maxWidth: 600 }}>
         <AppContainer
           uriPrefix={uriPrefix}
           // https://reactnavigation.org/docs/en/app-containers.html#calling-dispatch-or-navigate-on-a-container-ref
