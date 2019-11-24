@@ -1,27 +1,32 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+
+import Carousel from '../components/Carousel';
 import { routes } from '../constants';
+import { listing } from '../api/listings';
 
 class DetailsScreen extends React.Component {
   static navigationOptions = {
     title: routes.Details,
   };
 
-  navigateToHomeScreen = () => {
-    this.props.navigation.navigate(routes.Home);
-  };
-
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.container}>
+        <Carousel photos={listing.photos} />
         <Text>
           Details Screen - listingID:{' '}
           {this.props.navigation.getParam('listingID')}
         </Text>
-        <Button title="Go to home" onPress={this.navigateToHomeScreen} />
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default DetailsScreen;
