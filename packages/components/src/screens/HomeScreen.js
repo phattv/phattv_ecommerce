@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-  Button,
-} from 'react-native';
+import { ScrollView, StyleSheet, Text, View, Button } from 'react-native';
 
 import { routes } from '../constants';
 import ListingCards from '../components/ListingCards';
@@ -30,12 +22,17 @@ class HomeScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView style={{ flex: 1 }}>
-        <StatusBar barStyle="dark-content" />
+      <ScrollView style={styles.container}>
+        <Text style={styles.title}>Welcome to phattv's ecommerce</Text>
         <ListingCards listings={listings} />
       </ScrollView>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+  title: { textAlign: 'center', fontSize: 20, fontWeight: 'bold' },
+});
 
 export default HomeScreen;

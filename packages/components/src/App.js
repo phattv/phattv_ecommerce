@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, StatusBar } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import 'react-native-gesture-handler';
@@ -50,6 +50,7 @@ class App extends React.Component {
     return (
       // without the style you may see a blank screen
       <SafeAreaView style={{ flex: 1, maxWidth: 600 }}>
+        <StatusBar barStyle="dark-content" />
         <AppContainer
           uriPrefix={uriPrefix}
           // https://reactnavigation.org/docs/en/app-containers.html#calling-dispatch-or-navigate-on-a-container-ref

@@ -11,6 +11,7 @@ import { withNavigation } from 'react-navigation';
 
 import { routes, styleConstants } from '../constants';
 import SquareImage from './SquareImage';
+import OneLineText from './OneLineText';
 
 const numColumns = 2;
 
@@ -29,20 +30,20 @@ class ListingCards extends React.Component {
           key={item.id}
         >
           <SquareImage
-            uri={item.image}
+            uri={item.image_url}
             size={Dimensions.get('window').width / 2}
             borderRadius={styleConstants.spacing}
           />
-          <Text style={styles.title}>{item.title}</Text>
+          <OneLineText style={styles.title} text={item.title} />
           <Text>S${item.price}</Text>
           <View style={styles.sellerInfo}>
             <SquareImage
-              uri={item.seller_image}
+              uri={item.seller.image_url}
               size={40}
               borderRadius={20}
               style={{ marginRight: styleConstants.spacing }}
             />
-            <Text>{item.seller_name}</Text>
+            <OneLineText text={item.seller.username} />
           </View>
         </TouchableOpacity>
       </View>
