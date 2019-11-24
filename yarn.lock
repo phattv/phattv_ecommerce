@@ -9406,6 +9406,13 @@ react-native-safe-area-view@^0.14.1:
   dependencies:
     debounce "^1.2.0"
 
+react-native-web-swiper@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-web-swiper/-/react-native-web-swiper-2.1.0.tgz#5b321819ee17ff1f7bc4ffd89388acf24b7b7fb7"
+  integrity sha512-TzHJIoHLEps03XFZp+8CLpvBbKxjIzqymaQeVemsNdGCqpVSMyCV7VN+2Yq3PZOGL49w5F0iynp80yGrDa7REA==
+  dependencies:
+    prop-types "^15.6.2"
+
 react-native-web@0.11.7:
   version "0.11.7"
   resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.11.7.tgz#d173d5a9b58db23b6d442c4bc4c81e9939adac23"
