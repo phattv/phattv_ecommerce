@@ -35,7 +35,7 @@ class ListingCards extends React.Component {
             borderRadius={styleConstants.spacing}
           />
           <OneLineText style={styles.title} text={item.title} />
-          <Text>S${item.price}</Text>
+          <Text>{item.price}</Text>
           <View style={styles.sellerInfo}>
             <SquareImage
               uri={item.seller.image_url}

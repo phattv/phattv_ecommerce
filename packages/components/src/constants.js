@@ -15,4 +15,23 @@ export const styleConstants = {
     borderRadius: spacingUnit / 2,
   },
   spacing: spacingUnit,
+  paddingTop: {
+    paddingTop: spacingUnit,
+  },
+  paddingRight: {
+    paddingRight: spacingUnit,
+  },
+  fonts: {
+    header: {
+      fontSize: 24,
+      fontWeight: 'bold',
+    },
+    headerNotBold: {
+      fontSize: 20,
+    },
+    headerTwo: {
+      fontSize: 20,
+      fontWeight: 'bold',
+    },
+  },
 };

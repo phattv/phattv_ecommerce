@@ -44,7 +44,6 @@ const sliderHeight = 300;
 const styles = StyleSheet.create({
   container: {
     height: sliderHeight,
-    backgroundColor: 'red',
   },
   slideContainer: {
     height: sliderHeight,
