@@ -1,9 +1,10 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text, View, Button } from 'react-native';
+import { ScrollView, StyleSheet, Text } from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { routes, styleConstants } from '../constants';
 import ListingCards from '../components/ListingCards';
-import { listings } from '../api/listings';
 
 class HomeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -13,10 +14,11 @@ class HomeScreen extends React.Component {
   };
 
   render() {
+    const { listings } = this.props;
     return (
       <ScrollView style={styles.container}>
         <Text style={styles.title}>Welcome to phattv's ecommerce</Text>
-        <ListingCards listings={listings} />
+        <ListingCards listings={listings.list} />
       </ScrollView>
     );
   }
@@ -27,4 +29,14 @@ const styles = StyleSheet.create({
   title: { textAlign: 'center', ...styleConstants.fonts.header },
 });
 
-export default HomeScreen;
+const mapStateToProps = (state, ownProps) => {
+  return { listings: state.listings };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    actions: bindActionCreators({}, dispatch),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
