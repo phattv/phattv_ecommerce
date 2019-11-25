@@ -1,15 +1,9 @@
 import { createStore, applyMiddleware } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import rootReducer from './reducers/rootReducer';
-import { reduxStoreId } from './constants';
-
-const persistConfig = {
-  key: reduxStoreId,
-  storage,
-};
+import persistConfig from './persistConfig';
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
