@@ -6,6 +6,9 @@ export const routes = {
 
 export const uriPrefix = 'phattv_ecommerce'; // to handle deep_link
 
+export const reduxStoreId = 'root';
+
+// UI constants
 const spacingUnit = 10;
 export const styleConstants = {
   border: {
