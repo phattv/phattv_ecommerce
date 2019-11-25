@@ -4,10 +4,12 @@ import {
   GET_LISTINGS_FAILURE,
 } from '../actions';
 
+import { listings } from '../api/listings';
+
 const initialState = {
   loading: false,
   error: null,
-  list: [],
+  list: listings,
   details: {},
 };
 
