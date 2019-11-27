@@ -8,6 +8,9 @@ export const uriPrefix = 'phattv_ecommerce'; // to handle deep_link
 
 export const reduxStoreId = 'root';
 
+// TODO: read from env variable
+export const BASE_URL = 'http://localhost:3001';
+
 // UI constants
 const spacingUnit = 10;
 export const styleConstants = {
@@ -21,9 +24,6 @@ export const styleConstants = {
   paddingTop: {
     paddingTop: spacingUnit,
   },
-  paddingRight: {
-    paddingRight: spacingUnit,
-  },
   fonts: {
     header: {
       fontSize: 24,
@@ -35,6 +35,17 @@ export const styleConstants = {
     headerTwo: {
       fontSize: 20,
       fontWeight: 'bold',
+    },
+    hyperlink: {
+      color: '#07C',
+    },
+  },
+  layout: {
+    leftRightView: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingTop: spacingUnit / 2,
     },
   },
 };

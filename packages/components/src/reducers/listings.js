@@ -2,20 +2,22 @@ import {
   GET_LISTINGS_REQUEST,
   GET_LISTINGS_SUCCESS,
   GET_LISTINGS_FAILURE,
+  GET_LISTING_REQUEST,
+  GET_LISTING_SUCCESS,
+  GET_LISTING_FAILURE,
 } from '../actions';
-
-import { listings } from '../api/listings';
 
 const initialState = {
   loading: false,
   error: null,
-  list: listings,
+  list: [],
   details: {},
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_LISTINGS_REQUEST:
+    case GET_LISTING_REQUEST:
       return {
         ...state,
         isLoading: true,
@@ -25,13 +27,21 @@ export default function(state = initialState, action) {
         ...state,
         isLoading: false,
         error: {},
-        list: action.payload.data,
+        list: action.payload,
       };
-    case GET_LISTINGS_FAILURE:
+    case GET_LISTING_SUCCESS:
       return {
         ...state,
         isLoading: false,
-        error: action.payload.data,
+        error: {},
+        details: action.payload,
+      };
+    case GET_LISTINGS_FAILURE:
+    case GET_LISTING_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload,
       };
     default:
       return state;

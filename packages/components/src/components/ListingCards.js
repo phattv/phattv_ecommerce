@@ -8,17 +8,22 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import { get } from 'lodash';
 
 import { routes, styleConstants } from '../constants';
 import SquareImage from './SquareImage';
 import OneLineText from './OneLineText';
+import CategoryText from './CategoryText';
+import SellerProfile from './SellerProfile';
 
 const numColumns = 2;
+const imageSize =
+  Dimensions.get('window').width / 2 - styleConstants.spacing * 2; // Half of window size with 5px horizontal padding
 
 class ListingCards extends React.Component {
   navigateToDetailsScreen = item => {
     this.props.navigation.navigate(routes.Details, {
-      listingID: item.id,
+      id: item.id,
     });
   };
 
@@ -29,25 +34,22 @@ class ListingCards extends React.Component {
           onPress={() => this.navigateToDetailsScreen(item)}
           key={item.id}
         >
-          <SquareImage
-            uri={item.image_url}
-            size={Dimensions.get('window').width / 2}
-            borderRadius={styleConstants.spacing}
-          />
-          <View style={styles.textContainer}>
-            <OneLineText style={styles.title} text={item.title} />
-            <Text>{item.price}</Text>
-            <View style={styles.sellerInfo}>
-              <SquareImage
-                uri={item.seller.image_url}
-                size={40}
-                borderRadius={20}
-                style={{ marginRight: styleConstants.spacing }}
-              />
-              <OneLineText text={item.seller.username} />
-            </View>
+          <View style={styles.imageContainer}>
+            <SquareImage
+              uri={item.image_url}
+              size={imageSize}
+              borderRadius={styleConstants.spacing}
+            />
           </View>
         </TouchableOpacity>
+        <View style={styles.textContainer}>
+          <OneLineText style={styles.title} text={item.title} />
+          <View style={styleConstants.layout.leftRightView}>
+            <Text>S${item.price}</Text>
+            <CategoryText category={get(item, 'category', {})} />
+          </View>
+          <SellerProfile seller={get(item, 'seller', {})} size={40} />
+        </View>
       </View>
     );
   };
@@ -73,16 +75,14 @@ const styles = StyleSheet.create({
   item: {
     flex: 1,
   },
+  imageContainer: {
+    alignItems: 'center',
+  },
   textContainer: {
     padding: styleConstants.spacing,
   },
   title: {
     fontWeight: 'bold',
-  },
-  sellerInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingTop: styleConstants.spacing / 2,
   },
 });
 

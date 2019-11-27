@@ -4,14 +4,17 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { routes, styleConstants } from '../constants';
+import { getListings } from '../actions/listings';
 import ListingCards from '../components/ListingCards';
 
 class HomeScreen extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: routes.Home,
-    };
+  static navigationOptions = {
+    title: routes.Home,
   };
+
+  componentDidMount() {
+    this.props.actions.getListings();
+  }
 
   render() {
     const { listings } = this.props;
@@ -35,7 +38,12 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    actions: bindActionCreators({}, dispatch),
+    actions: bindActionCreators(
+      {
+        getListings,
+      },
+      dispatch,
+    ),
   };
 };
 
