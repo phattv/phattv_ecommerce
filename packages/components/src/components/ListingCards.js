@@ -14,6 +14,8 @@ import SquareImage from './SquareImage';
 import OneLineText from './OneLineText';
 
 const numColumns = 2;
+const imageSize =
+  Dimensions.get('window').width / 2 - styleConstants.spacing * 2; // Half of window size with 5px horizontal padding
 
 class ListingCards extends React.Component {
   navigateToDetailsScreen = item => {
@@ -29,14 +31,21 @@ class ListingCards extends React.Component {
           onPress={() => this.navigateToDetailsScreen(item)}
           key={item.id}
         >
-          <SquareImage
-            uri={item.image_url}
-            size={Dimensions.get('window').width / 2}
-            borderRadius={styleConstants.spacing}
-          />
+          <View style={styles.imageContainer}>
+            <SquareImage
+              uri={item.image_url}
+              size={imageSize}
+              borderRadius={styleConstants.spacing}
+            />
+          </View>
           <View style={styles.textContainer}>
             <OneLineText style={styles.title} text={item.title} />
-            <Text>{item.price}</Text>
+            <View style={styles.leftRightView}>
+              <Text>S${item.price}</Text>
+              <Text>
+                in <Text style={styles.blueText}>{item.category.name}</Text>
+              </Text>
+            </View>
             <View style={styles.sellerInfo}>
               <SquareImage
                 uri={item.seller.image_url}
@@ -73,11 +82,22 @@ const styles = StyleSheet.create({
   item: {
     flex: 1,
   },
+  imageContainer: {
+    alignItems: 'center',
+  },
   textContainer: {
     padding: styleConstants.spacing,
   },
   title: {
     fontWeight: 'bold',
+  },
+  leftRightView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingTop: styleConstants.spacing / 2,
+  },
+  blueText: {
+    color: styleConstants.colors.blue,
   },
   sellerInfo: {
     flexDirection: 'row',

@@ -40,4 +40,7 @@ export const styleConstants = {
       fontWeight: 'bold',
     },
   },
+  colors: {
+    blue: '#07C',
+  },
 };
