@@ -28,10 +28,7 @@ class Carousel extends React.Component {
               <View style={styles.slideContainer}>
                 <Image
                   resizeMode="cover"
-                  style={{
-                    width: '100%',
-                    height: sliderHeight,
-                  }}
+                  style={styles.image}
                   source={{
                     uri: photo,
                   }}
@@ -54,6 +51,10 @@ const styles = StyleSheet.create({
     height: sliderHeight,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  image: {
+    width: '100%',
+    height: sliderHeight,
   },
 });
 

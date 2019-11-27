@@ -1,10 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, ScrollView, Text, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { withNavigation } from 'react-navigation';
+import { get } from 'lodash';
 
 import Carousel from '../components/Carousel';
 import SquareImage from '../components/SquareImage';
 import { routes, styleConstants } from '../constants';
-import { listing } from '../api/listings';
+import { getListing } from '../actions/listings';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const sellerImageSize = 80;
 class DetailsScreen extends React.Component {
@@ -12,15 +17,31 @@ class DetailsScreen extends React.Component {
     title: routes.Details,
   };
 
+  componentDidMount() {
+    this.props.actions.getListing(this.props.navigation.getParam('id'));
+  }
+
   render() {
+    const { listings } = this.props;
+    const listing = listings.details;
     return (
-      <View style={styles.container}>
-        <Carousel photos={listing.photos} />
+      <ScrollView style={styles.container}>
+        <Carousel photos={get(listing, 'photos', [])} />
         <View style={styles.textContainer}>
           <Text style={styleConstants.fonts.headerNotBold}>
             {listing.title}
           </Text>
-          <Text style={styleConstants.fonts.header}>{listing.price}</Text>
+          <Text style={styleConstants.fonts.header}>S${listing.price}</Text>
+          <TouchableOpacity>
+            <Text
+              style={[
+                styleConstants.paddingTop,
+                styleConstants.fonts.hyperlink,
+              ]}
+            >
+              in {get(listing, 'category.name', '')}
+            </Text>
+          </TouchableOpacity>
           <Text style={styleConstants.paddingTop}>{listing.description}</Text>
 
           <Text
@@ -28,16 +49,16 @@ class DetailsScreen extends React.Component {
           >
             Seller Information
           </Text>
-          <View style={styles.sellerInfo}>
+          <TouchableOpacity style={styles.sellerInfo}>
             <SquareImage
               size={sellerImageSize}
-              uri={listing.seller.image_url}
-              style={styles.sellerImage}
+              uri={get(listing, 'seller.image_url', '')}
+              style={{ marginRight: styleConstants.spacing }}
             />
-            <Text>{listing.seller.username}</Text>
-          </View>
+            <Text>{get(listing, 'seller.username', '')}</Text>
+          </TouchableOpacity>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -54,9 +75,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     ...styleConstants.paddingTop,
   },
-  sellerImage: {
-    marginRight: styleConstants.spacing,
-  },
 });
 
-export default DetailsScreen;
+const mapStateToProps = (state, ownProps) => {
+  return { listings: state.listings };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    actions: bindActionCreators(
+      {
+        getListing,
+      },
+      dispatch,
+    ),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(withNavigation(DetailsScreen));

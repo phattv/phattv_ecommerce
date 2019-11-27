@@ -24,9 +24,6 @@ export const styleConstants = {
   paddingTop: {
     paddingTop: spacingUnit,
   },
-  paddingRight: {
-    paddingRight: spacingUnit,
-  },
   fonts: {
     header: {
       fontSize: 24,
@@ -39,8 +36,15 @@ export const styleConstants = {
       fontSize: 20,
       fontWeight: 'bold',
     },
+    hyperlink: {
+      color: '#07C',
+    },
   },
-  colors: {
-    blue: '#07C',
+  layout: {
+    leftRightView: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      paddingTop: spacingUnit / 2,
+    },
   },
 };

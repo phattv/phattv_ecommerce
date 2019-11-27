@@ -1,6 +1,6 @@
 import React from 'react';
 import { withNavigation } from 'react-navigation';
-import { View, Text, Button, Image, StyleSheet } from 'react-native';
+import { View, Button, Image, StyleSheet } from 'react-native';
 
 class ModalScreen extends React.Component {
   render() {

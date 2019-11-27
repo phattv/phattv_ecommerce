@@ -21,7 +21,7 @@ const imageSize =
 class ListingCards extends React.Component {
   navigateToDetailsScreen = item => {
     this.props.navigation.navigate(routes.Details, {
-      listingID: item.id,
+      id: item.id,
     });
   };
 
@@ -42,14 +42,11 @@ class ListingCards extends React.Component {
         </TouchableOpacity>
         <View style={styles.textContainer}>
           <OneLineText style={styles.title} text={item.title} />
-          <View style={styles.leftRightView}>
+          <View style={styleConstants.layout.leftRightView}>
             <Text>S${item.price}</Text>
             <TouchableOpacity>
-              <Text>
-                in{' '}
-                <Text style={styles.blueText}>
-                  {get(item, 'category.name', '')}
-                </Text>
+              <Text style={styleConstants.fonts.hyperlink}>
+                in {get(item, 'category.name', '')}
               </Text>
             </TouchableOpacity>
           </View>
@@ -96,14 +93,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: 'bold',
-  },
-  leftRightView: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingTop: styleConstants.spacing / 2,
-  },
-  blueText: {
-    color: styleConstants.colors.blue,
   },
   sellerInfo: {
     flexDirection: 'row',
