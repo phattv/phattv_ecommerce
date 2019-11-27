@@ -8,6 +8,9 @@ export const uriPrefix = 'phattv_ecommerce'; // to handle deep_link
 
 export const reduxStoreId = 'root';
 
+// TODO: read from env variable
+export const BASE_URL = 'http://localhost:3001';
+
 // UI constants
 const spacingUnit = 10;
 export const styleConstants = {

@@ -25,13 +25,13 @@ export default function(state = initialState, action) {
         ...state,
         isLoading: false,
         error: {},
-        list: action.payload.data,
+        list: action.payload,
       };
     case GET_LISTINGS_FAILURE:
       return {
         ...state,
         isLoading: false,
-        error: action.payload.data,
+        error: action.payload,
       };
     default:
       return state;
