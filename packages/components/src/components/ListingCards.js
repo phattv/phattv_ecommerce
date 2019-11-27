@@ -14,6 +14,7 @@ import { routes, styleConstants } from '../constants';
 import SquareImage from './SquareImage';
 import OneLineText from './OneLineText';
 import CategoryText from './CategoryText';
+import SellerProfile from './SellerProfile';
 
 const numColumns = 2;
 const imageSize =
@@ -47,15 +48,7 @@ class ListingCards extends React.Component {
             <Text>S${item.price}</Text>
             <CategoryText category={get(item, 'category', {})} />
           </View>
-          <TouchableOpacity style={styles.sellerInfo}>
-            <SquareImage
-              uri={get(item, 'seller.image_url', '')}
-              size={40}
-              borderRadius={20}
-              style={{ marginRight: styleConstants.spacing }}
-            />
-            <OneLineText text={get(item, 'seller.username', '')} />
-          </TouchableOpacity>
+          <SellerProfile seller={get(item, 'seller', {})} size={40} />
         </View>
       </View>
     );
@@ -90,11 +83,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: 'bold',
-  },
-  sellerInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingTop: styleConstants.spacing / 2,
   },
 });
 

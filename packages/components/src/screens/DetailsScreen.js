@@ -14,6 +14,7 @@ import { get } from 'lodash';
 import Carousel from '../components/Carousel';
 import SquareImage from '../components/SquareImage';
 import CategoryText from '../components/CategoryText';
+import SellerProfile from '../components/SellerProfile';
 import { routes, styleConstants } from '../constants';
 import { getListing } from '../actions/listings';
 
@@ -48,14 +49,10 @@ class DetailsScreen extends React.Component {
           >
             Seller Information
           </Text>
-          <TouchableOpacity style={styles.sellerInfo}>
-            <SquareImage
-              size={sellerImageSize}
-              uri={get(listing, 'seller.image_url', '')}
-              style={{ marginRight: styleConstants.spacing }}
-            />
-            <Text>{get(listing, 'seller.username', '')}</Text>
-          </TouchableOpacity>
+          <SellerProfile
+            seller={get(listing, 'seller', {})}
+            size={sellerImageSize}
+          />
         </View>
       </ScrollView>
     );
@@ -68,11 +65,6 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     padding: styleConstants.spacing,
-  },
-  sellerInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    ...styleConstants.paddingTop,
   },
 });
 
