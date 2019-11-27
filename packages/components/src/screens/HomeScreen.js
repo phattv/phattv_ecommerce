@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { routes, styleConstants } from '../constants';
-import ListingCards from '../components/ListingCards';
 import { getListings } from '../actions/listings';
+import ListingCards from '../components/ListingCards';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {

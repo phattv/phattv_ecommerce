@@ -1,22 +1,15 @@
 import React from 'react';
-import {
-  View,
-  ScrollView,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withNavigation } from 'react-navigation';
 import { get } from 'lodash';
 
-import Carousel from '../components/Carousel';
-import SquareImage from '../components/SquareImage';
-import CategoryText from '../components/CategoryText';
-import SellerProfile from '../components/SellerProfile';
 import { routes, styleConstants } from '../constants';
 import { getListing } from '../actions/listings';
+import Carousel from '../components/Carousel';
+import CategoryText from '../components/CategoryText';
+import SellerProfile from '../components/SellerProfile';
 
 const sellerImageSize = 80;
 class DetailsScreen extends React.Component {
