@@ -11,6 +11,7 @@
     "build:ios": "yarn workspace mobile ios",
     "xcode": "yarn workspace mobile xcode",
     "simulator": "open -a Simulator.app",
+    "port-forward": "adb reverse tcp:3001 tcp:3001",
     "prettier": "prettier --write packages/**/*.{js,css}"
   },
   "workspaces": {
@@ -39,6 +40,7 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "lodash": "^4.17.15",
     "react-native": "0.61.4",
     "react-native-gesture-handler": "^1.5.0",
     "react-native-reanimated": "^1.4.0",

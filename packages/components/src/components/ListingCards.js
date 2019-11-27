@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import { get } from 'lodash';
 
 import { routes, styleConstants } from '../constants';
 import SquareImage from './SquareImage';
@@ -38,25 +39,30 @@ class ListingCards extends React.Component {
               borderRadius={styleConstants.spacing}
             />
           </View>
-          <View style={styles.textContainer}>
-            <OneLineText style={styles.title} text={item.title} />
-            <View style={styles.leftRightView}>
-              <Text>S${item.price}</Text>
-              <Text>
-                in <Text style={styles.blueText}>{item.category.name}</Text>
-              </Text>
-            </View>
-            <View style={styles.sellerInfo}>
-              <SquareImage
-                uri={item.seller.image_url}
-                size={40}
-                borderRadius={20}
-                style={{ marginRight: styleConstants.spacing }}
-              />
-              <OneLineText text={item.seller.username} />
-            </View>
-          </View>
         </TouchableOpacity>
+        <View style={styles.textContainer}>
+          <OneLineText style={styles.title} text={item.title} />
+          <View style={styles.leftRightView}>
+            <Text>S${item.price}</Text>
+            <TouchableOpacity>
+              <Text>
+                in{' '}
+                <Text style={styles.blueText}>
+                  {get(item, 'category.name', '')}
+                </Text>
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity style={styles.sellerInfo}>
+            <SquareImage
+              uri={get(item, 'seller.image_url', '')}
+              size={40}
+              borderRadius={20}
+              style={{ marginRight: styleConstants.spacing }}
+            />
+            <OneLineText text={get(item, 'seller.username', '')} />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   };
