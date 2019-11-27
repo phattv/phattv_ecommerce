@@ -44,6 +44,7 @@ export const styleConstants = {
     leftRightView: {
       flexDirection: 'row',
       justifyContent: 'space-between',
+      alignItems: 'center',
       paddingTop: spacingUnit / 2,
     },
   },

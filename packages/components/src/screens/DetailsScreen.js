@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, ScrollView, Text, StyleSheet } from 'react-native';
+import {
+  View,
+  ScrollView,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withNavigation } from 'react-navigation';
@@ -7,9 +13,9 @@ import { get } from 'lodash';
 
 import Carousel from '../components/Carousel';
 import SquareImage from '../components/SquareImage';
+import CategoryText from '../components/CategoryText';
 import { routes, styleConstants } from '../constants';
 import { getListing } from '../actions/listings';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const sellerImageSize = 80;
 class DetailsScreen extends React.Component {
@@ -32,16 +38,9 @@ class DetailsScreen extends React.Component {
             {listing.title}
           </Text>
           <Text style={styleConstants.fonts.header}>S${listing.price}</Text>
-          <TouchableOpacity>
-            <Text
-              style={[
-                styleConstants.paddingTop,
-                styleConstants.fonts.hyperlink,
-              ]}
-            >
-              in {get(listing, 'category.name', '')}
-            </Text>
-          </TouchableOpacity>
+          <View style={styleConstants.paddingTop}>
+            <CategoryText category={get(listing, 'category', {})} />
+          </View>
           <Text style={styleConstants.paddingTop}>{listing.description}</Text>
 
           <Text

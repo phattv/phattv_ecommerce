@@ -13,6 +13,7 @@ import { get } from 'lodash';
 import { routes, styleConstants } from '../constants';
 import SquareImage from './SquareImage';
 import OneLineText from './OneLineText';
+import CategoryText from './CategoryText';
 
 const numColumns = 2;
 const imageSize =
@@ -44,11 +45,7 @@ class ListingCards extends React.Component {
           <OneLineText style={styles.title} text={item.title} />
           <View style={styleConstants.layout.leftRightView}>
             <Text>S${item.price}</Text>
-            <TouchableOpacity>
-              <Text style={styleConstants.fonts.hyperlink}>
-                in {get(item, 'category.name', '')}
-              </Text>
-            </TouchableOpacity>
+            <CategoryText category={get(item, 'category', {})} />
           </View>
           <TouchableOpacity style={styles.sellerInfo}>
             <SquareImage
