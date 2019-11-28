@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, YellowBox } from 'react-native';
+import { SafeAreaView, StatusBar } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import 'react-native-gesture-handler';
@@ -11,8 +11,6 @@ import DetailsScreen from './screens/DetailsScreen';
 import ModalScreen from './screens/ModalScreen';
 import { routes, uriPrefix } from './constants';
 import { store, persistor } from './configureStore';
-
-YellowBox.ignoreWarnings(['VirtualizedLists should never be nested']);
 
 // Declare all the routes
 const MainStack = createStackNavigator(
