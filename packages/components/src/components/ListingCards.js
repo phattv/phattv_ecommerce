@@ -21,7 +21,6 @@ import OneLineText from './OneLineText';
 import CategoryText from './CategoryText';
 import SellerProfile from './SellerProfile';
 import LoadingModal from './LoadingModal';
-import { createCoverageSummary } from 'istanbul-lib-coverage';
 
 const numColumns = 2;
 const imageSize = Dimensions.get('window').width / 2 - styleConstants.spacing; // Half of window size with 5px horizontal padding
@@ -149,7 +148,7 @@ class ListingCards extends React.Component {
     const { currentCategory, currentSeller } = this.state;
     return (
       <>
-        <LoadingModal loading={isLoading} />
+        {isLoading && <LoadingModal loading={isLoading} />}
         {currentCategory.name || currentSeller.username ? (
           <View style={styles.filterContainer}>
             <Text style={styles.bold}>
