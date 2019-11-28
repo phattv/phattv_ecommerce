@@ -8,7 +8,7 @@ class CategoryText extends React.Component {
   render() {
     const { category, onPress } = this.props;
     return (
-      <TouchableOpacity onPress={() => onPress(category)}>
+      <TouchableOpacity onPress={() => onPress && onPress(category)}>
         <Text style={[styleConstants.fonts.hyperlink, { fontSize: 12 }]}>
           in {get(category, 'name', '')}
         </Text>
