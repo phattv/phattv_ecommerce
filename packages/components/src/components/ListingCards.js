@@ -37,7 +37,7 @@ class ListingCards extends React.Component {
   };
 
   componentDidMount() {
-    this.getListings();
+    this.getListings(true);
   }
 
   loadMore = () => {
@@ -46,7 +46,7 @@ class ListingCards extends React.Component {
         {
           currentPage: this.state.currentPage + 1,
         },
-        () => this.getListings(),
+        () => this.getListings(true),
       );
       this.onEndReachedCalledDuringMomentum = true;
     }
@@ -118,7 +118,7 @@ class ListingCards extends React.Component {
     );
   };
 
-  getListings = () => {
+  getListings = (noScrollTop = false) => {
     this.props.actions.getListings({
       size: this.state.currentPage * pageSize,
       category_id: this.state.currentCategory.id,
@@ -126,7 +126,9 @@ class ListingCards extends React.Component {
       sort_by: this.state.sortBy,
       sort_order: this.state.sortOrder,
     });
-    this.scrollToTop();
+    if (!noScrollTop) {
+      this.scrollToTop();
+    }
   };
   renderListingCard = ({ item }) => {
     return (
