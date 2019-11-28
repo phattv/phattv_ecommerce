@@ -4,8 +4,10 @@
   "scripts": {
     "start:web": "yarn workspace web start",
     "build:web": "yarn workspace web build",
+    "build:prod:web": "yarn workspace web build",
     "start:mobile": "yarn workspace mobile start",
     "build:android": "yarn workspace mobile android",
+    "build:prod:android": "cd packages/mobile/android && ./gradlew assembleRelease",
     "studio": "yarn workspace mobile studio",
     "emulator": "emulator -avd $(emulator -list-avds | head -n 1)",
     "build:ios": "yarn workspace mobile ios",

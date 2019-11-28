@@ -2,12 +2,6 @@
 
 TODO
 
-# Features
-
-TODO
-
-# Contents
-
 - [About](#About)
 - [Note](#Note)
 - [Requirements](#Requirements)
@@ -96,10 +90,16 @@ Get latest version of
 
 # How to deploy
 
-TODO
-
 ## Web
+
+- `yarn build:prod:web`
 
 ## Android
 
+- `yarn build:prod:android`
+
 ## iOS
+
+- `yarn xcode`
+- Choose `Product menu > Scheme -> Edit Scheme -> Build Configuration` change from `Debug` to `Release`
+- Build
