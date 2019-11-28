@@ -20,6 +20,7 @@ import SquareImage from './SquareImage';
 import OneLineText from './OneLineText';
 import CategoryText from './CategoryText';
 import SellerProfile from './SellerProfile';
+import LoadingModal from './LoadingModal';
 
 const numColumns = 2;
 const imageSize = Dimensions.get('window').width / 2 - styleConstants.spacing; // Half of window size with 5px horizontal padding
@@ -91,8 +92,10 @@ class ListingCards extends React.Component {
 
   render() {
     const { listings } = this.props;
+    const isLoading = get(listings, 'isLoading', false);
     return (
       <>
+        <LoadingModal loading={isLoading} />
         <FlatList
           ref={ref => {
             this.flatListRef = ref;
@@ -103,10 +106,7 @@ class ListingCards extends React.Component {
           renderItem={this.renderListingCard}
           numColumns={numColumns}
           refreshControl={
-            <RefreshControl
-              refreshing={get(listings, 'loading', false)}
-              onRefresh={this.onRefresh}
-            />
+            <RefreshControl refreshing={isLoading} onRefresh={this.onRefresh} />
           }
           onEndReached={this.loadMore}
           onEndReachedThreshold={0.5}

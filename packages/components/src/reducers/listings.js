@@ -8,7 +8,7 @@ import {
 } from '../actions';
 
 const initialState = {
-  loading: false,
+  isLoading: false,
   error: null,
   list: [],
   details: {},
