@@ -8,7 +8,9 @@ class CategoryText extends React.Component {
     const { category = {} } = this.props;
     return (
       <TouchableOpacity>
-        <Text style={styleConstants.fonts.hyperlink}>in {category.name}</Text>
+        <Text style={[styleConstants.fonts.hyperlink, { fontSize: 12 }]}>
+          in {category.name}
+        </Text>
       </TouchableOpacity>
     );
   }
