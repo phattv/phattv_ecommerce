@@ -64,10 +64,7 @@ class ListingCards extends React.Component {
         currentCategory: category,
         currentSeller: {},
       },
-      () => {
-        this.getListings();
-        this.scrollToTop();
-      },
+      () => this.getListings(),
     );
   };
 
@@ -77,10 +74,7 @@ class ListingCards extends React.Component {
         currentCategory: {},
         currentSeller: seller,
       },
-      () => {
-        this.getListings();
-        this.scrollToTop();
-      },
+      () => this.getListings(),
     );
   };
 
@@ -90,20 +84,50 @@ class ListingCards extends React.Component {
         currentCategory: {},
         currentSeller: {},
       },
-      () => {
-        this.getListings();
-        this.scrollToTop();
-      },
+      () => this.getListings(),
     );
   };
 
-  getListings = () =>
+  sortRecent = () => {
+    this.setState(
+      {
+        sortBy: 'created_at',
+        sortOrder: 'desc',
+      },
+      () => this.getListings(),
+    );
+  };
+
+  sortPriceAsc = () => {
+    this.setState(
+      {
+        sortBy: 'price',
+        sortOrder: 'asc',
+      },
+      () => this.getListings(),
+    );
+  };
+
+  sortPriceDesc = () => {
+    this.setState(
+      {
+        sortBy: 'price',
+        sortOrder: 'desc',
+      },
+      () => this.getListings(),
+    );
+  };
+
+  getListings = () => {
     this.props.actions.getListings({
       size: this.state.currentPage * pageSize,
       category_id: this.state.currentCategory.id,
       seller_id: this.state.currentSeller.id,
+      sort_by: this.state.sortBy,
+      sort_order: this.state.sortOrder,
     });
-
+    this.scrollToTop();
+  };
   renderListingCard = ({ item }) => {
     return (
       <View style={styles.item}>
@@ -149,6 +173,22 @@ class ListingCards extends React.Component {
     return (
       <>
         {isLoading && <LoadingModal loading={isLoading} />}
+
+        {/* Sort */}
+        <View style={styles.filterContainer}>
+          <Text style={styles.bold}>Sort: </Text>
+          <TouchableOpacity onPress={this.sortRecent}>
+            <Text style={styleConstants.fonts.hyperlink}>Recent</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.sortPriceAsc}>
+            <Text style={styleConstants.fonts.hyperlink}>Price asc</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.sortPriceDesc}>
+            <Text style={styleConstants.fonts.hyperlink}>Price desc</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Filter */}
         {currentCategory.name || currentSeller.username ? (
           <View style={styles.filterContainer}>
             <Text style={styles.bold}>
@@ -162,6 +202,7 @@ class ListingCards extends React.Component {
             </TouchableOpacity>
           </View>
         ) : null}
+
         <FlatList
           ref={ref => {
             this.flatListRef = ref;

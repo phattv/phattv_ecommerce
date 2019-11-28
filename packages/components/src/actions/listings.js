@@ -9,7 +9,13 @@ import {
 } from './index';
 import { BASE_URL } from '../constants';
 
-export const getListings = ({ size, category_id, seller_id }) => {
+export const getListings = ({
+  size,
+  category_id,
+  seller_id,
+  sort_by,
+  sort_order,
+}) => {
   return dispatch => {
     dispatch({
       type: GET_LISTINGS_REQUEST,
@@ -22,6 +28,12 @@ export const getListings = ({ size, category_id, seller_id }) => {
     }
     if (seller_id) {
       url += `&seller_id=${seller_id}`;
+    }
+    if (sort_by) {
+      url += `&sort_by=${sort_by}`;
+    }
+    if (sort_order) {
+      url += `&sort_order=${sort_order}`;
     }
 
     axios
