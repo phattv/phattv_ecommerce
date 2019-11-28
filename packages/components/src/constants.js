@@ -9,7 +9,7 @@ export const uriPrefix = 'phattv_ecommerce'; // to handle deep_link
 export const reduxStoreId = 'root';
 
 // TODO: read from env variable
-export const BASE_URL = 'http://localhost:3001';
+export const BASE_URL = 'http://192.168.1.129:3001';
 
 // UI constants
 const spacingUnit = 10;
@@ -26,14 +26,14 @@ export const styleConstants = {
   },
   fonts: {
     header: {
-      fontSize: 24,
+      fontSize: 20,
       fontWeight: 'bold',
     },
     headerNotBold: {
       fontSize: 20,
     },
     headerTwo: {
-      fontSize: 20,
+      fontSize: 18,
       fontWeight: 'bold',
     },
     hyperlink: {

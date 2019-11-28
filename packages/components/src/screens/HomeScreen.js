@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -17,19 +17,30 @@ class HomeScreen extends React.Component {
   }
 
   render() {
-    const { listings } = this.props;
+    const { listings, actions = {} } = this.props;
     return (
-      <ScrollView style={styles.container}>
-        <Text style={styles.title}>Welcome to phattv's ecommerce</Text>
-        <ListingCards listings={listings.list} />
-      </ScrollView>
+      <View style={styles.container}>
+        <Text style={[styleConstants.fonts.header, styles.textCenter]}>
+          Welcome to phattv's ecommerce
+        </Text>
+        <Text style={styles.textCenter}>Pull to refresh</Text>
+        <ListingCards
+          listings={listings.list}
+          getListings={actions.getListings}
+          refreshing={listings.loading}
+        />
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
-  title: { textAlign: 'center', ...styleConstants.fonts.header },
+  container: {
+    flex: 1,
+  },
+  textCenter: {
+    textAlign: 'center',
+  },
 });
 
 const mapStateToProps = (state, ownProps) => {

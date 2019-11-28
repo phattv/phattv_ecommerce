@@ -1,8 +1,9 @@
 import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text, View } from 'react-native';
 
 import { styleConstants } from '../constants';
 import SquareImage from './SquareImage';
+import OneLineText from './OneLineText';
 
 class SellerProfile extends React.Component {
   render() {
@@ -10,6 +11,7 @@ class SellerProfile extends React.Component {
     return (
       <TouchableOpacity
         style={{
+          flex: 1,
           flexDirection: 'row',
           alignItems: 'center',
           ...styleConstants.paddingTop,
@@ -20,7 +22,10 @@ class SellerProfile extends React.Component {
           uri={seller.image_url}
           style={{ marginRight: styleConstants.spacing }}
         />
-        <Text>{seller.username}</Text>
+        <View style={{ overflow: 'hidden' }}>
+          <Text style={styleConstants.fonts.hyperlink}>{seller.username}</Text>
+          <OneLineText style={{ paddingRight: 50 }} text={seller.bio} />
+        </View>
       </TouchableOpacity>
     );
   }
