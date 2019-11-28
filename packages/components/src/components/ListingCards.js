@@ -30,6 +30,7 @@ class ListingCards extends React.Component {
   state = {
     currentPage: 1,
     currentCategory: {},
+    currentSeller: {},
   };
 
   onRefresh = () => {
@@ -62,6 +63,20 @@ class ListingCards extends React.Component {
     this.setState(
       {
         currentCategory: category,
+        currentSeller: {},
+      },
+      () => {
+        this.getListings();
+        this.scrollToTop();
+      },
+    );
+  };
+
+  filterBySeller = seller => {
+    this.setState(
+      {
+        currentCategory: {},
+        currentSeller: seller,
       },
       () => {
         this.getListings();
@@ -74,6 +89,7 @@ class ListingCards extends React.Component {
     this.setState(
       {
         currentCategory: {},
+        currentSeller: {},
       },
       () => {
         this.getListings();
@@ -86,6 +102,7 @@ class ListingCards extends React.Component {
     this.props.actions.getListings({
       size: this.state.currentPage * pageSize,
       category_id: this.state.currentCategory.id,
+      seller_id: this.state.currentSeller.id,
     });
 
   renderListingCard = ({ item }) => {
@@ -112,7 +129,11 @@ class ListingCards extends React.Component {
               onPress={this.filterByCategory}
             />
           </View>
-          <SellerProfile seller={get(item, 'seller', {})} size={40} />
+          <SellerProfile
+            seller={get(item, 'seller', {})}
+            size={40}
+            onPress={this.filterBySeller}
+          />
         </View>
       </View>
     );
@@ -125,18 +146,23 @@ class ListingCards extends React.Component {
   render() {
     const { listings } = this.props;
     const isLoading = get(listings, 'isLoading', false);
-    const { currentCategory } = this.state;
+    const { currentCategory, currentSeller } = this.state;
     return (
       <>
         <LoadingModal loading={isLoading} />
-        {currentCategory.name && (
+        {currentCategory.name || currentSeller.username ? (
           <View style={styles.filterContainer}>
-            <Text style={styles.bold}>Filtering by {currentCategory.name}</Text>
+            <Text style={styles.bold}>
+              Filter:{' '}
+              {currentCategory.name
+                ? `Category ${currentCategory.name}`
+                : `User ${currentSeller.username}`}
+            </Text>
             <TouchableOpacity onPress={this.clearFilter}>
               <Text style={styleConstants.fonts.hyperlink}>Clear filter</Text>
             </TouchableOpacity>
           </View>
-        )}
+        ) : null}
         <FlatList
           ref={ref => {
             this.flatListRef = ref;
