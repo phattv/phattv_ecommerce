@@ -9,15 +9,20 @@ import {
 } from './index';
 import { BASE_URL } from '../constants';
 
-export const getListings = ({ size }) => {
+export const getListings = ({ size, category_id }) => {
   return dispatch => {
     dispatch({
       type: GET_LISTINGS_REQUEST,
       payload: {},
     });
 
+    let url = `${BASE_URL}/listings?offset=0&limit=${size}`;
+    if (category_id) {
+      url += `&category_id=${category_id}`;
+    }
+
     axios
-      .get(`${BASE_URL}/listings?offset=0&limit=${size}`)
+      .get(url)
       .then(response =>
         dispatch({
           type: GET_LISTINGS_SUCCESS,

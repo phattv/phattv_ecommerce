@@ -1,15 +1,16 @@
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
+import { get } from 'lodash';
 
 import { styleConstants } from '../constants';
 
 class CategoryText extends React.Component {
   render() {
-    const { category = {} } = this.props;
+    const { category, onPress } = this.props;
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => onPress(category)}>
         <Text style={[styleConstants.fonts.hyperlink, { fontSize: 12 }]}>
-          in {category.name}
+          in {get(category, 'name', '')}
         </Text>
       </TouchableOpacity>
     );
