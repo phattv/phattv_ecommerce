@@ -9,7 +9,7 @@ import {
 } from './index';
 import { BASE_URL } from '../constants';
 
-export const getListings = () => {
+export const getListings = ({ size }) => {
   return dispatch => {
     dispatch({
       type: GET_LISTINGS_REQUEST,
@@ -17,7 +17,7 @@ export const getListings = () => {
     });
 
     axios
-      .get(`${BASE_URL}/listings`)
+      .get(`${BASE_URL}/listings?offset=0&limit=${size}`)
       .then(response =>
         dispatch({
           type: GET_LISTINGS_SUCCESS,

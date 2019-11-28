@@ -11,6 +11,8 @@ export const reduxStoreId = 'root';
 // TODO: read from env variable
 export const BASE_URL = 'http://192.168.1.129:3001';
 
+export const pageSize = 6;
+
 // UI constants
 const spacingUnit = 10;
 export const styleConstants = {

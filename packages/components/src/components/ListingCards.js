@@ -11,8 +11,11 @@ import {
 } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import { get } from 'lodash';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import { routes, styleConstants } from '../constants';
+import { routes, styleConstants, pageSize } from '../constants';
+import { getListings } from '../actions/listings';
 import SquareImage from './SquareImage';
 import OneLineText from './OneLineText';
 import CategoryText from './CategoryText';
@@ -22,8 +25,35 @@ const numColumns = 2;
 const imageSize = Dimensions.get('window').width / 2 - styleConstants.spacing; // Half of window size with 5px horizontal padding
 
 class ListingCards extends React.Component {
+  state = {
+    currentPage: 1,
+  };
+
   onRefresh = () => {
-    this.props.getListings();
+    this.props.actions.getListings({
+      size: this.state.currentPage * pageSize,
+    });
+  };
+
+  componentDidMount() {
+    this.props.actions.getListings({
+      size: this.state.currentPage * pageSize,
+    });
+  }
+
+  loadMore = () => {
+    if (!this.onEndReachedCalledDuringMomentum) {
+      this.setState(
+        {
+          currentPage: this.state.currentPage + 1,
+        },
+        () =>
+          this.props.actions.getListings({
+            size: this.state.currentPage * pageSize,
+          }),
+      );
+      this.onEndReachedCalledDuringMomentum = true;
+    }
   };
 
   navigateToDetailsScreen = item => {
@@ -60,6 +90,7 @@ class ListingCards extends React.Component {
   };
 
   render() {
+    const { listings } = this.props;
     return (
       <>
         <FlatList
@@ -67,16 +98,21 @@ class ListingCards extends React.Component {
             this.flatListRef = ref;
           }}
           style={styles.container}
-          data={this.props.listings}
+          data={get(listings, 'list', [])}
           keyExtractor={item => item.id}
           renderItem={this.renderListingCard}
           numColumns={numColumns}
           refreshControl={
             <RefreshControl
-              refreshing={this.props.refreshing}
+              refreshing={get(listings, 'loading', false)}
               onRefresh={this.onRefresh}
             />
           }
+          onEndReached={this.loadMore}
+          onEndReachedThreshold={0.5}
+          onMomentumScrollBegin={() => {
+            this.onEndReachedCalledDuringMomentum = false;
+          }}
         />
         <Button
           onPress={() =>
@@ -108,4 +144,22 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withNavigation(ListingCards);
+const mapStateToProps = (state, ownProps) => {
+  return { listings: state.listings };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    actions: bindActionCreators(
+      {
+        getListings,
+      },
+      dispatch,
+    ),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(withNavigation(ListingCards));
