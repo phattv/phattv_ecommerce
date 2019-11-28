@@ -17,7 +17,7 @@ class SellerProfile extends React.Component {
           alignItems: 'center',
           ...styleConstants.paddingTop,
         }}
-        onPress={() => onPress(seller)}
+        onPress={() => onPress && onPress(seller)}
       >
         <SquareImage
           size={size}
