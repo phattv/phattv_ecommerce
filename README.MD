@@ -1,6 +1,10 @@
 # Screenshots
 
-TODO
+![Home screen](https://imgur.com/s0TA1bo.jpg)
+
+![Details screen](https://imgur.com/Jgi6MS7.jpg)
+
+# Content
 
 - [About](#About)
 - [Note](#Note)
@@ -93,6 +97,7 @@ Get latest version of
 ## Web
 
 - `yarn build:prod:web`
+- `yarn start:prod:web`
 
 ## Android
 
@@ -101,5 +106,6 @@ Get latest version of
 ## iOS
 
 - `yarn xcode`
-- Choose `Product menu > Scheme -> Edit Scheme -> Build Configuration` change from `Debug` to `Release`
-- Build
+- (cmd + shift + ,) Choose `Product menu > Scheme -> Edit Scheme -> Build Configuration` change from `Debug` to `Release`
+- (cmd + b) Build
+- (cmd + r) Run
