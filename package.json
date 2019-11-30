@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start:web": "yarn workspace web start",
-    "build:web": "yarn workspace web build",
+    "start:prod:web": "yarn workspace web start:prod",
     "build:prod:web": "yarn workspace web build",
     "start:mobile": "yarn workspace mobile start",
     "build:android": "yarn workspace mobile android",
