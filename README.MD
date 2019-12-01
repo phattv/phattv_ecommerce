@@ -18,11 +18,11 @@
 
 An Integrated Approach To Develop Web And Mobile (iOS & Android) Applications Using React and React Native
 
-## Aim
+### Aim
 
 To develop, build and deploy 3 applications of “phattv’s ecommerce”, web to the World Wide Web, android to Play Store and iOS to App Store, that share the same logic code from the single code base.
 
-## Objectives
+### Objectives
 
 1. To research the technologies involved to develop cross-platform web & mobile applications.
 2. To analyse and document use cases and requirements of a online shopping platform.
@@ -40,14 +40,14 @@ To develop, build and deploy 3 applications of “phattv’s ecommerce”, web t
 
 Get latest version of
 
-## Applications
+### Applications
 
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [Xcode](https://developer.apple.com/xcode/)
 - [Android Studio](https://developer.android.com/studio/install)
 - [Google Chrome](https://www.google.com/chrome/)
 
-## Command line packages
+### Command line packages
 
 - [node](https://nodejs.org/en/)
 - [yarn](https://yarnpkg.com/lang/en/docs/install)
@@ -63,53 +63,52 @@ Get latest version of
 
 # How to build
 
-## Web
+### Web
 
 - `yarn build:web`
 
-## Android
+### Android
 
 - `yarn start:mobile`
 - `yarn build:android`
 
-## iOS
+### iOS
 
 - `yarn start:mobile`
 - `yarn build:iOS`
 
 # How to run/develop
 
-## Web
+### Web
 
 - `yarn start:web`
 
-## iOS & Android
+### iOS & Android
 
 - `yarn start:mobile`
 - If you have installed the app to a device or followed `How to build` steps, you should be able to open the application in your physical devices or emulators/simulators
 
-## Install new dependencies
+### Install new dependencies
 
 `yarn workspace components add {package_name}`
 
 # How to deploy
 
-## Web
+### Web
 
 - `yarn build:prod:web`
 - `yarn start:prod:web`
 
-## Android
+### Android
 
 - `yarn studio`
 - `Build` menu > `Select Build Variant` change from `debug` to `release`
 - Choose device
-- (opt + r) Run app
+- (opt + r) Run
 
-## iOS
+### iOS
 
 - `yarn xcode`
-- (cmd + shift + ,) Choose `Product menu > Scheme -> Edit Scheme -> Build Configuration` change from `Debug` to `Release`
+- (cmd + shift + ,) `Product` menu > `Scheme -> Edit Scheme -> Build Configuration` change from `Debug` to `Release`
 - Choose device
-- (cmd + b) Build
 - (cmd + r) Run
