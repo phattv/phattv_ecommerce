@@ -101,11 +101,15 @@ Get latest version of
 
 ## Android
 
-- `yarn build:prod:android`
+- `yarn studio`
+- `Build` menu > `Select Build Variant` change from `debug` to `release`
+- Choose device
+- (opt + r) Run app
 
 ## iOS
 
 - `yarn xcode`
 - (cmd + shift + ,) Choose `Product menu > Scheme -> Edit Scheme -> Build Configuration` change from `Debug` to `Release`
+- Choose device
 - (cmd + b) Build
 - (cmd + r) Run
