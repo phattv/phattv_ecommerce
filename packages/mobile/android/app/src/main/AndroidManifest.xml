@@ -1,8 +1,11 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.phattv_ecommerce">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.phattv_ecommerce">
 
   <uses-permission android:name="android.permission.INTERNET" />
 
-  <application android:name=".MainApplication" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:allowBackup="false" android:theme="@style/AppTheme">
+  <application android:networkSecurityConfig="@xml/network_security_config" android:debuggable="true" android:name=".MainApplication" android:label="@string/app_name" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:allowBackup="false" android:theme="@style/AppTheme"
+      tools:ignore="HardcodedDebugMode">
     <activity android:name=".SplashActivity" android:theme="@style/SplashTheme" android:label="@string/app_name">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
