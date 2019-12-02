@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
 import { routes, styleConstants } from '../constants';
 import ListingCards from '../components/ListingCards';
+import Text from '../components/Text';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {

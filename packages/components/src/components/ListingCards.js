@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   StyleSheet,
-  Text,
   Button,
   View,
   FlatList,
@@ -17,6 +16,7 @@ import { bindActionCreators } from 'redux';
 import { routes, styleConstants, pageSize } from '../constants';
 import { getListings } from '../actions/listings';
 import SquareImage from './SquareImage';
+import Text from './Text';
 import OneLineText from './OneLineText';
 import CategoryText from './CategoryText';
 import SellerProfile from './SellerProfile';
@@ -236,6 +236,7 @@ const styles = StyleSheet.create({
   },
   item: {
     flex: 1,
+    paddingBottom: styleConstants.spacing,
   },
   imageContainer: {
     alignItems: 'center',

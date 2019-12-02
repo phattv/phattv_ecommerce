@@ -1,10 +1,11 @@
 import React from 'react';
-import { TouchableOpacity, Text, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { get } from 'lodash';
 
 import { styleConstants } from '../constants';
 import SquareImage from './SquareImage';
 import OneLineText from './OneLineText';
+import Text from './Text';
 
 class SellerProfile extends React.Component {
   render() {
@@ -15,7 +16,7 @@ class SellerProfile extends React.Component {
           flex: 1,
           flexDirection: 'row',
           alignItems: 'center',
-          ...styleConstants.paddingTop,
+          paddingTop: styleConstants.spacing / 2,
         }}
         onPress={() => onPress && onPress(seller)}
       >

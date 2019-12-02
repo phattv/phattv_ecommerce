@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, Text, StyleSheet } from 'react-native';
+import { View, ScrollView, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withNavigation } from 'react-navigation';
@@ -10,6 +10,7 @@ import { getListing } from '../actions/listings';
 import Carousel from '../components/Carousel';
 import CategoryText from '../components/CategoryText';
 import SellerProfile from '../components/SellerProfile';
+import Text from '../components/Text';
 
 const sellerImageSize = 80;
 class DetailsScreen extends React.Component {
