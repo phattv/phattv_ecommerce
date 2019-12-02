@@ -13,7 +13,7 @@
     "build:ios": "yarn workspace mobile ios",
     "xcode": "yarn workspace mobile xcode",
     "simulator": "open -a Simulator.app",
-    "port-forward": "adb reverse tcp:3001 tcp:3001",
+    "port-forward": "adb reverse tcp:8081 tcp:8081",
     "prettier": "prettier --write packages/**/*.{js,css}"
   },
   "workspaces": {

@@ -1,8 +1,9 @@
 import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { get } from 'lodash';
 
 import { styleConstants } from '../constants';
+import Text from './Text';
 
 class CategoryText extends React.Component {
   render() {
