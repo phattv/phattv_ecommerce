@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "start:prod": "serve -s build",
+    "start:prod": "serve -s build -p 80",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
