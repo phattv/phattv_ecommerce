@@ -14,10 +14,12 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={[styleConstants.fonts.header, styles.textCenter]}>
-          Welcome to phattv's ecommerce
-        </Text>
-        <Text style={styles.textCenter}>Pull to refresh</Text>
+        <View style={styles.textCenter}>
+          <Text style={[styleConstants.fonts.header, styles.textCenter]}>
+            Welcome to phattv's ecommerce
+          </Text>
+          <Text style={styles.textCenter}>Pull to refresh</Text>
+        </View>
         <ListingCards />
       </View>
     );
@@ -29,7 +31,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   textCenter: {
-    textAlign: 'center',
+    alignItems: 'center',
   },
 });
 
