@@ -13,6 +13,7 @@
 - [How to build](#How-to-build)
 - [How to run/develop](#How-to-run/develop)
 - [How to deploy](#How-to-deploy)
+- [How to build to binary files](#How-to-build-to-binary-files)
 
 # About
 
@@ -112,3 +113,28 @@ Get latest version of
 - (cmd + shift + ,) `Product` menu > `Scheme -> Edit Scheme -> Build Configuration` change from `Debug` to `Release`
 - Choose device
 - (cmd + r) Run
+
+# How to build to binary files
+
+### Android
+
+- yarn `studio`
+- `Build` menu > `Generate Signed Bundled / APK` > Choose `APK`
+- Create your own keystore information > `Next`
+- Choose destination folder
+- Choose `Build Variant` `relase`
+- `Finish`
+- Should see `.apk` file at the selected destination folder, copy this file to any android device and open to install
+
+### iOS
+
+- `yarn xcode`
+- `Product` menu > `Archive`, wait for `Archive Information` dialog to appear
+- Choose `Distribute App`
+- Choose `Development`> `Next`
+  - App Thinning: None
+  - Additional Options: Choose `Rebuild from Bitcode` & `Include manifest for over-the-air information` > `Next`
+- Fill in `Distribution manifest information` > `Next`
+- Choose `Automatically manage signing` > `Next`
+- Wait for `Review app.ipa content` to show and check information > `Export`
+- Should see `.ipa` file at the selected destination folder, copy this file to any android device and open to install
