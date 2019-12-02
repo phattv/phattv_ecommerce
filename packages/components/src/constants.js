@@ -13,6 +13,8 @@ export const BASE_URL = 'http://35.240.212.226';
 
 export const pageSize = 6;
 
+export const appMaxWidth = 600;
+
 // UI constants
 const spacingUnit = 10;
 export const styleConstants = {

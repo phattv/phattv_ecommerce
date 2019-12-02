@@ -13,7 +13,7 @@ import { get } from 'lodash';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { routes, styleConstants, pageSize } from '../constants';
+import { routes, styleConstants, pageSize, appMaxWidth } from '../constants';
 import { getListings } from '../actions/listings';
 import SquareImage from './SquareImage';
 import Text from './Text';
@@ -23,7 +23,11 @@ import SellerProfile from './SellerProfile';
 import LoadingModal from './LoadingModal';
 
 const numColumns = 2;
-const imageSize = Dimensions.get('window').width / 2 - styleConstants.spacing; // Half of window size with 5px horizontal padding
+let windowWidth = Dimensions.get('window').width;
+if (windowWidth > appMaxWidth) {
+  windowWidth = appMaxWidth;
+}
+const imageSize = windowWidth / 2 - styleConstants.spacing; // Half of window size with 5px horizontal padding
 
 class ListingCards extends React.Component {
   state = {

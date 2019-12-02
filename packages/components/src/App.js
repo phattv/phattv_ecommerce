@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import HomeScreen from './screens/HomeScreen';
 import DetailsScreen from './screens/DetailsScreen';
 import ModalScreen from './screens/ModalScreen';
-import { routes, uriPrefix } from './constants';
+import { routes, uriPrefix, appMaxWidth } from './constants';
 import { store, persistor } from './configureStore';
 
 // Declare all the routes
@@ -54,7 +54,7 @@ class App extends React.Component {
       // without the style you may see a blank screen
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <SafeAreaView style={{ flex: 1, maxWidth: 600 }}>
+          <SafeAreaView style={{ flex: 1, maxWidth: appMaxWidth }}>
             <StatusBar barStyle="dark-content" />
             <AppContainer
               uriPrefix={uriPrefix}
