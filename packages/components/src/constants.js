@@ -9,7 +9,7 @@ export const uriPrefix = 'phattv_ecommerce'; // to handle deep_link
 export const reduxStoreId = 'root';
 
 // TODO: read from env variable
-export const BASE_URL = 'http://35.240.212.226';
+export const BASE_URL = 'https://api.phattv.dev';
 
 export const pageSize = 6;
 

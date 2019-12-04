@@ -66,7 +66,7 @@ Get latest version of
 
 ### Web
 
-- `yarn build:web`
+- `yarn start:web`
 
 ### Android
 
